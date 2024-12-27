@@ -53,12 +53,14 @@ namespace FW
 	//--------
 	WatchID FileWatcher::addWatch(const String& directory, FileWatchListener* watcher)
 	{
+		printf("addWatch %s, non recursive\n", directory.c_str());
 		return mImpl->addWatch(directory, watcher, false);
 	}
 
 	//--------
 	WatchID FileWatcher::addWatch(const String& directory, FileWatchListener* watcher, bool recursive)
 	{
+		printf("addWatch %s, recursive = %d\n", directory.c_str(), recursive);
 		return mImpl->addWatch(directory, watcher, recursive);
 	}
 

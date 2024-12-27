@@ -46,6 +46,29 @@ namespace FW
 	class FileWatcherImpl;
 	class FileWatchListener;
 
+	/// Base exception class
+	/// @class Exception
+	class Exception : public std::runtime_error
+	{
+	public:
+		Exception(const std::string& message)
+			: std::runtime_error(message)
+		{}
+	};
+
+	/// Exception thrown when a file is not found.
+	/// @class FileNotFoundException
+	class FileNotFoundException : public Exception
+	{
+	public:
+		FileNotFoundException()
+			: Exception("File not found")
+		{}
+
+		FileNotFoundException(const String& filename)
+			: Exception("File not found (" + filename.m_string + ")")
+		{}
+	};
 
 	/// Actions to listen for. Rename will send two events, one for
 	/// the deletion of the old file, and one for the creation of the

@@ -135,7 +135,7 @@ namespace FileSystemUtils
 		}
 		return convertedString;
 	}
- 
+
 	// Do not use outside win32
 	inline std::wstring _Win32Utf8ToUtf16(const std::string& str)
 	{
@@ -147,12 +147,12 @@ namespace FileSystemUtils
 			MultiByteToWideChar(CP_UTF8, 0, str.c_str(), -1, &convertedString[0], requiredSize);
 			convertedString.pop_back(); //remove NULL terminator
 		}
- 
+
 		return convertedString;
 	}
 #endif
 
-	// utf8 xplat fopen which works on win32 
+	// utf8 xplat fopen which works on win32
 	inline FILE* fopen( Path path_, const char* mode_ )
 	{
 #ifdef _WIN32
@@ -184,7 +184,7 @@ namespace FileSystemUtils
 		currPath = currdir;
 		free( currdir );
 #endif
-		
+
 		return currPath;
 	}
 
@@ -219,7 +219,7 @@ namespace FileSystemUtils
 #endif
 		return currPath;
 	}
-	
+
 	inline void ToLowerInPlace( std::string& inout_str )
 	{
 		for( size_t i = 0; i < inout_str.size(); ++i )
@@ -590,7 +590,7 @@ namespace FileSystemUtils
 
 		return parentpath;
 	}
-	
+
 	inline Path Path::DelimitersToOSDefault()	const
 	{
 		Path path = m_string;
@@ -633,7 +633,7 @@ namespace FileSystemUtils
         {
         	strlhs.erase(strlhs.length()-1, 1);
         }
-        
+
         //note: should probably remove preceding seperators to rhs_, but this has not as yet occured
         Path join = strlhs + Path::seperator + rhs_.m_string;
         return join;
@@ -787,12 +787,12 @@ namespace FileSystemUtils
         {
             ImpDtor();
         }
-        
+
         bool operator++()
         {
             return ImpNext();
         }
-        
+
         bool IsValid() const
         {
             return m_bIsValid;
@@ -801,7 +801,7 @@ namespace FileSystemUtils
         {
             return m_path;
         }
-        
+
     };
 
 
